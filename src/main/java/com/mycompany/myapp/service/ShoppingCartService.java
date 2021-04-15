@@ -103,8 +103,4 @@ public class ShoppingCartService {
         log.debug("Request to delete ShoppingCart : {}", id);
         shoppingCartRepository.deleteById(id);
     }
-
-    public BigDecimal applyDiscount(BigDecimal totalValue, Integer percentualDiscount) {
-        return totalValue.subtract(totalValue.multiply(BigDecimal.valueOf(percentualDiscount / 100)));
-    }
 }
