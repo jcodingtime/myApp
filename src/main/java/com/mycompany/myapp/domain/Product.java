@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import jcodingtime.java.annotations.JCodingTime;
+import jcodingtime.java.annotations.LimitValue;
 
 /**
  * Product sold by the Online store
@@ -101,6 +103,8 @@ public class Product implements Serializable {
         return this;
     }
 
+    @JCodingTime
+    @LimitValue(innerBoundary = 0, upperBoundary = 130)
     public void setPrice(BigDecimal price) {
         this.price = price;
     }

@@ -2,7 +2,11 @@ package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.Product;
 import com.mycompany.myapp.repository.ProductRepository;
+import java.math.BigDecimal;
 import java.util.Optional;
+import jcodingtime.java.annotations.Input;
+import jcodingtime.java.annotations.JCodingTime;
+import jcodingtime.java.annotations.Output;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -106,5 +110,12 @@ public class ProductService {
     public void delete(Long id) {
         log.debug("Request to delete Product : {}", id);
         productRepository.deleteById(id);
+    }
+
+    @JCodingTime
+    @Input(firstParam = 100, secondParam = 10)
+    @Output(result = 90)
+    public BigDecimal totalPrice(BigDecimal totalValue, Integer percentualDiscount) {
+        return totalValue.subtract(totalValue.multiply(BigDecimal.valueOf(percentualDiscount / 100)));
     }
 }
