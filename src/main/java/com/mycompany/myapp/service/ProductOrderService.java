@@ -5,6 +5,10 @@ import com.mycompany.myapp.repository.ProductOrderRepository;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
+
+import jcodingtime.java.annotations.Input;
+import jcodingtime.java.annotations.JCodingTime;
+import jcodingtime.java.annotations.Output;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -93,5 +97,12 @@ public class ProductOrderService {
     public void delete(Long id) {
         log.debug("Request to delete ProductOrder : {}", id);
         productOrderRepository.deleteById(id);
+    }
+
+    @JCodingTime
+    @Input(firstParam=20, secondParam=10)
+    @Output(result=200)
+    public BigDecimal calculateTotalValue(BigDecimal price, Integer quantity) {
+        return price.multiply(BigDecimal.valueOf(quantity));
     }
 }
