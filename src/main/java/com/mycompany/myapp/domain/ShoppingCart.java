@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import jcodingtime.java.annotations.*;
 
 /**
  * A ShoppingCart.
@@ -105,6 +106,8 @@ public class ShoppingCart implements Serializable {
         return this;
     }
 
+    @JCodingTime
+    @LimitValue(innerBoundary = 0, upperBoundary = 9999)
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
