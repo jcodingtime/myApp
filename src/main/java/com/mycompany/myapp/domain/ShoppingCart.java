@@ -1,6 +1,7 @@
 package com.mycompany.myapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.mycompany.myapp.domain.enumeration.OrderStatus;
 import com.mycompany.myapp.domain.enumeration.PaymentMethod;
 import java.io.Serializable;
@@ -10,7 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-
+import jcodingtime.java.annotations.*;
 /**
  * A ShoppingCart.
  */
@@ -104,7 +105,9 @@ public class ShoppingCart implements Serializable {
         this.totalPrice = totalPrice;
         return this;
     }
-
+   
+    @JCodingTime
+    @LimitValue(innerBoundary = 0, upperBoundary=9999)
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
