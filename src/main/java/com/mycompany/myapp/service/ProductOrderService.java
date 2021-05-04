@@ -5,10 +5,9 @@ import com.mycompany.myapp.repository.ProductOrderRepository;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
-
-import jcodingtime.java.annotations.Input;
-import jcodingtime.java.annotations.JCodingTime;
-import jcodingtime.java.annotations.Output;
+import jcodingtime.java.verifier.annotation.Input;
+import jcodingtime.java.verifier.annotation.JCodingTime;
+import jcodingtime.java.verifier.annotation.Output;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -100,8 +99,8 @@ public class ProductOrderService {
     }
 
     @JCodingTime
-    @Input(firstParam=20, secondParam=10)
-    @Output(result=200)
+    @Input(firstParam = "20", secondParam = "10")
+    @Output(result = "200")
     public BigDecimal calculateTotalValue(BigDecimal price, Integer quantity) {
         return price.multiply(BigDecimal.valueOf(quantity));
     }

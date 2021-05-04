@@ -3,16 +3,14 @@ package com.mycompany.myapp.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mycompany.myapp.config.Constants;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-
-import jcodingtime.java.annotations.JCodingTime;
-import jcodingtime.java.annotations.LimitValue;
+import jcodingtime.java.verifier.annotation.JCodingTime;
+import jcodingtime.java.verifier.annotation.LimitValue;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
 

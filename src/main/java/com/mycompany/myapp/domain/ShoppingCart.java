@@ -10,7 +10,8 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import jcodingtime.java.annotations.*;
+import jcodingtime.java.verifier.annotation.JCodingTime;
+import jcodingtime.java.verifier.annotation.LimitValue;
 
 /**
  * A ShoppingCart.
