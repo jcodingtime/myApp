@@ -1,7 +1,7 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.ShoppingCart;
-import com.mycompany.myapp.repository.ShoppingCartRepository;
+import static com.mycompany.myapp.repository.ShoppingCartRepository;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
@@ -112,5 +112,15 @@ public class ShoppingCartService {
     @Output(result = "80")
     public BigDecimal applyDiscount(BigDecimal totalValue, Integer percentualDiscount) {
         return totalValue.subtract(totalValue.multiply(BigDecimal.valueOf(percentualDiscount / 100)));
+    }
+
+    @JCodingTime
+    @Input(firstParam="1")
+    @Output(result=true)
+    public Boolean verifyPaymentType(PaymentMethod paymentMethod) {
+        if(paymentMethod.equals(0)) {
+            return false;
+        }
+        return true;
     }
 }
