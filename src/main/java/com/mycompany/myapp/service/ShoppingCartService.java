@@ -1,7 +1,7 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.ShoppingCart;
-import static com.mycompany.myapp.repository.ShoppingCartRepository;
+import com.mycompany.myapp.repository.ShoppingCartRepository;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
@@ -115,10 +115,10 @@ public class ShoppingCartService {
     }
 
     @JCodingTime
-    @Input(firstParam="1")
-    @Output(result=true)
-    public Boolean verifyPaymentType(PaymentMethod paymentMethod) {
-        if(paymentMethod.equals(0)) {
+    @Input(firstParam = "1")
+    @Output(result = "true")
+    public Boolean verifyPaymentType(int paymentMethod) {
+        if (paymentMethod == 0) {
             return false;
         }
         return true;
