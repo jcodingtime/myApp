@@ -9,8 +9,8 @@ import java.util.Locale;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-//import jcodingtime.java.verifier.annotation.JCodingTime;
-//import jcodingtime.java.verifier.annotation.LimitValue;
+import jcodingtime.java.verifier.annotation.JCodingTime;
+import jcodingtime.java.verifier.annotation.LimitValue;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
 
@@ -202,11 +202,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return age;
     }
 
-    //    @JCodingTime
-    //    @LimitValue(innerBoundary = 18, upperBoundary = 130)
-    //    public void setAge(Integer age) {
-    //        this.age = age;
-    //    }
+        @JCodingTime
+        @LimitValue(innerBoundary = 18, upperBoundary = 130)
+        public void setAge(Integer age) {
+            this.age = age;
+        }
 
     @Override
     public boolean equals(Object o) {

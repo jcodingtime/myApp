@@ -13,9 +13,9 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
-//import jcodingtime.java.verifier.annotation.Input;
-//import jcodingtime.java.verifier.annotation.JCodingTime;
-//import jcodingtime.java.verifier.annotation.Output;
+import jcodingtime.java.verifier.annotation.Input;
+import jcodingtime.java.verifier.annotation.JCodingTime;
+import jcodingtime.java.verifier.annotation.Output;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
@@ -346,9 +346,9 @@ public class UserService {
         }
     }
 
-    //    @JCodingTime
-    //    @Input(firstParam= "Admin")
-    //    @Output(result="true")
+        @JCodingTime
+        @Input(firstParam= "Admin")
+        @Output(result="true")
     public Boolean verifyAdminUser(String role) {
         if (role.equals("Admin")) {
             return true;

@@ -3,6 +3,10 @@ package com.mycompany.myapp.service;
 import com.mycompany.myapp.domain.CustomerDetails;
 import com.mycompany.myapp.repository.CustomerDetailsRepository;
 import java.util.Optional;
+
+import jcodingtime.java.verifier.annotation.Input;
+import jcodingtime.java.verifier.annotation.JCodingTime;
+import jcodingtime.java.verifier.annotation.Output;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -112,5 +116,15 @@ public class CustomerDetailsService {
     public void delete(Long id) {
         log.debug("Request to delete CustomerDetails : {}", id);
         customerDetailsRepository.deleteById(id);
+    }
+
+    @JCodingTime
+    @Input(firstParam= "Brazil", secondParam="18")
+    @Output(result="true")
+    public Boolean verifyCountryAndAge(String country, Integer age){
+        if(country.equals("Brazil") && age >= 18){
+            return true;
+        }
+        return false;
     }
 }
