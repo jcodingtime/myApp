@@ -11,8 +11,8 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-//import jcodingtime.java.verifier.annotation.JCodingTime;
-//import jcodingtime.java.verifier.annotation.LimitValue;
+import jcodingtime.java.verifier.annotation.JCodingTime;
+import jcodingtime.java.verifier.annotation.LimitValue;
 
 /**
  * A ShoppingCart.
@@ -108,8 +108,8 @@ public class ShoppingCart implements Serializable {
         return this;
     }
 
-    //    @JCodingTime
-    //    @LimitValue(innerBoundary = 0, upperBoundary = 9999)
+        @JCodingTime
+        @LimitValue(innerBoundary = 0, upperBoundary = 9999)
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
