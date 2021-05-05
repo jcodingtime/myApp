@@ -5,9 +5,9 @@ import com.mycompany.myapp.repository.ShoppingCartRepository;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
-import jcodingtime.java.verifier.annotation.Input;
-import jcodingtime.java.verifier.annotation.JCodingTime;
-import jcodingtime.java.verifier.annotation.Output;
+//import jcodingtime.java.verifier.annotation.Input;
+//import jcodingtime.java.verifier.annotation.JCodingTime;
+//import jcodingtime.java.verifier.annotation.Output;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -107,16 +107,16 @@ public class ShoppingCartService {
         shoppingCartRepository.deleteById(id);
     }
 
-    @JCodingTime
-    @Input(firstParam = "100", secondParam = "20")
-    @Output(result = "80")
+    //    @JCodingTime
+    //    @Input(firstParam = "100", secondParam = "20")
+    //    @Output(result = "80")
     public BigDecimal applyDiscount(BigDecimal totalValue, Integer percentualDiscount) {
         return totalValue.subtract(totalValue.multiply(BigDecimal.valueOf(percentualDiscount / 100)));
     }
 
-    @JCodingTime
-    @Input(firstParam = "1")
-    @Output(result = "true")
+    //    @JCodingTime
+    //    @Input(firstParam = "1")
+    //    @Output(result = "true")
     public Boolean verifyPaymentType(int paymentMethod) {
         if (paymentMethod == 0) {
             return false;

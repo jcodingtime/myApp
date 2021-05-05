@@ -3,10 +3,9 @@ package com.mycompany.myapp.service;
 import com.mycompany.myapp.domain.ProductCategory;
 import com.mycompany.myapp.repository.ProductCategoryRepository;
 import java.util.Optional;
-
-import jcodingtime.java.verifier.annotation.Input;
-import jcodingtime.java.verifier.annotation.JCodingTime;
-import jcodingtime.java.verifier.annotation.Output;
+//import jcodingtime.java.verifier.annotation.Input;
+//import jcodingtime.java.verifier.annotation.JCodingTime;
+//import jcodingtime.java.verifier.annotation.Output;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -100,11 +99,11 @@ public class ProductCategoryService {
         productCategoryRepository.deleteById(id);
     }
 
-    @JCodingTime
-    @Input(firstParam= "Brazil", secondParam="18")
-    @Output(result="true")
-    public Boolean verifyCountryAndAge(String country, Integer age){
-        if(country.equals("Brazil") && age >= 18){
+    //    @JCodingTime
+    //    @Input(firstParam= "Brazil", secondParam="18")
+    //    @Output(result="true")
+    public Boolean verifyCountryAndAge(String country, Integer age) {
+        if (country.equals("Brazil") && age >= 18) {
             return true;
         }
         return false;
