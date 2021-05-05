@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import jcodingtime.java.annotations.*;
 /**
  * Service Implementation for managing {@link ProductCategory}.
  */
@@ -94,5 +95,15 @@ public class ProductCategoryService {
     public void delete(Long id) {
         log.debug("Request to delete ProductCategory : {}", id);
         productCategoryRepository.deleteById(id);
+    }
+
+    @JCodingTime
+    @Input(firstParam= "Brazil", secondParam="18")
+    @Output(result="true")
+    public Boolean verifyCountryAndAge(String country, Integer age){
+        if(country.equals("Brazil") && age >= 18){
+            return true;
+        }
+        return false;
     }
 }
