@@ -13,6 +13,10 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import jcodingtime.java.verifier.annotation.Input;
+import jcodingtime.java.verifier.annotation.JCodingTime;
+import jcodingtime.java.verifier.annotation.Output;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
@@ -341,5 +345,15 @@ public class UserService {
         if (user.getEmail() != null) {
             Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE)).evict(user.getEmail());
         }
+    }
+
+    @JCodingTime
+    @Input(firstParam= "Admin")
+    @Output(result="true")
+    public Boolean verifyAdminUser(String role){
+        if(role.equals("Admin")){
+            return true;
+        }
+        return false;
     }
 }
